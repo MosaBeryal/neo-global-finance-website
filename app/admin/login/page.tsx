@@ -4,9 +4,9 @@ import React from "react"
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, Mail, AlertCircle } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -14,6 +14,28 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [dbError, setDbError] = useState('');
+  const [showSetupGuide, setShowSetupGuide] = useState(false);
+
+  useEffect(() => {
+    const checkDatabase = async () => {
+      try {
+        const response = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: 'test', password: 'test' }),
+        });
+        const data = await response.json();
+        if (data.dbError) {
+          setDbError(data.dbError);
+          setShowSetupGuide(true);
+        }
+      } catch (err) {
+        // Silently fail on network errors during check
+      }
+    };
+    checkDatabase();
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,6 +77,31 @@ export default function AdminLoginPage() {
           <h1 className="text-3xl font-bold text-primary">Neo Global</h1>
           <p className="text-foreground/70">Admin Dashboard</p>
         </div>
+
+        {/* Database Error Alert */}
+        {showSetupGuide && (
+          <div className="mb-6 p-6 bg-yellow-50 border-2 border-yellow-200 rounded-xl">
+            <div className="flex gap-3 mb-3">
+              <AlertCircle className="text-yellow-700 flex-shrink-0 mt-0.5" size={24} />
+              <div>
+                <h3 className="font-bold text-yellow-900 mb-2">Database Setup Required</h3>
+                <p className="text-sm text-yellow-800 mb-4">
+                  MySQL is not connected. To use the admin dashboard, you need to:
+                </p>
+                <ol className="text-xs text-yellow-800 space-y-1 ml-4 list-decimal">
+                  <li>Install MySQL and ensure it's running on localhost:3306</li>
+                  <li>Copy .env.example to .env.local</li>
+                  <li>Add your MySQL credentials to .env.local</li>
+                  <li>Run: mysql -u root -p neo_finance {'<'} scripts/init-database.sql</li>
+                  <li>Restart your dev server</li>
+                </ol>
+                <p className="text-xs text-yellow-700 mt-3">
+                  See ADMIN_SETUP.md for complete instructions
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Login Card */}
         <div className="bg-white rounded-2xl p-10 border border-border shadow-lg">

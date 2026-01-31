@@ -1,9 +1,22 @@
 import { loginAdmin, createAdminUser, hashPassword } from '@/lib/auth';
-import { query, queryOne } from '@/lib/db';
+import { query, queryOne, isDatabaseAvailable, getDatabaseError } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if database is available
+    if (!isDatabaseAvailable()) {
+      const dbError = getDatabaseError();
+      return NextResponse.json(
+        {
+          error: 'Database connection failed',
+          dbError: dbError,
+          message: 'Please set up MySQL and configure environment variables. See ADMIN_SETUP.md for instructions.',
+        },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
     const { username, password } = body;
 
@@ -51,10 +64,31 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error('[v0] Admin login error:', error);
+
+    // Check if it's a database connection error
+    if (
+      error?.code === 'ECONNREFUSED' ||
+      error?.message?.includes('ECONNREFUSED') ||
+      error?.message?.includes('MySQL')
+    ) {
+      const dbError = getDatabaseError();
+      return NextResponse.json(
+        {
+          error: 'Database connection failed',
+          dbError: dbError,
+          message: 'MySQL server is not running. Start MySQL and restart the dev server.',
+        },
+        { status: 503 }
+      );
+    }
+
     return NextResponse.json(
-      { error: 'Login failed' },
+      {
+        error: 'An error occurred',
+        details: process.env.NODE_ENV === 'development' ? error?.message : undefined,
+      },
       { status: 500 }
     );
   }
