@@ -116,29 +116,61 @@
 }
 
 @layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
+  
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold tracking-tight;
+    @apply font-serif font-bold tracking-tight leading-tight text-balance;
   }
+  
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-900 tracking-tighter;
+    letter-spacing: -0.02em;
   }
+  
   h2 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    letter-spacing: -0.01em;
   }
+  
   h3 {
-    @apply text-2xl sm:text-3xl md:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight;
   }
+  
   h4 {
-    @apply text-xl sm:text-2xl md:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold;
   }
+  
+  h5 {
+    @apply text-lg sm:text-xl font-semibold;
+  }
+  
+  h6 {
+    @apply text-base sm:text-lg font-semibold;
+  }
+  
   p {
-    @apply leading-relaxed;
+    @apply leading-relaxed text-base;
+    line-height: 1.65;
+  }
+  
+  strong, b {
+    @apply font-semibold;
+  }
+  
+  em, i {
+    @apply font-light italic;
   }
 }
 
@@ -146,7 +178,48 @@
   .font-serif {
     @apply [font-family:var(--font-serif),serif];
   }
+  
+  .font-sans {
+    @apply [font-family:var(--font-sans),sans-serif];
+  }
+  
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  .heading-1 {
+    @apply font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-900 tracking-tighter leading-tight text-balance;
+  }
+  
+  .heading-2 {
+    @apply font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-balance;
+  }
+  
+  .heading-3 {
+    @apply font-serif text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-balance;
+  }
+  
+  .heading-4 {
+    @apply font-serif text-xl sm:text-2xl md:text-3xl font-semibold leading-snug;
+  }
+  
+  .subheading {
+    @apply font-sans text-lg sm:text-xl md:text-2xl font-medium tracking-wide uppercase;
+  }
+  
+  .body-large {
+    @apply text-lg sm:text-xl leading-relaxed;
+  }
+  
+  .body-small {
+    @apply text-sm leading-relaxed;
+  }
+  
+  .caption {
+    @apply text-xs sm:text-sm font-light text-muted-foreground;
   }
 }
