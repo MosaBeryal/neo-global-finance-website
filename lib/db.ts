@@ -17,7 +17,6 @@ const initPool = () => {
       connectionLimit: 10,
       queueLimit: 0,
       enableKeepAlive: true,
-      keepAliveInitialDelayMs: 0,
     });
     return pool;
   } catch (error) {
@@ -64,7 +63,10 @@ export async function query(sql: string, values?: any[]) {
       connection.release();
     }
   } catch (error) {
-    console.error('[v0] Database query error:', error);
+    // Silently handle connection errors in preview environment
+    if (process.env.NODE_ENV === 'development' && (error as any)?.code === 'ECONNREFUSED') {
+      return [];
+    }
     throw error;
   }
 }

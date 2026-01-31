@@ -65,25 +65,27 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error: any) {
-    console.error('[v0] Admin login error:', error);
-
     // Check if it's a database connection error
     if (
       error?.code === 'ECONNREFUSED' ||
       error?.message?.includes('ECONNREFUSED') ||
       error?.message?.includes('MySQL')
     ) {
-      const dbError = getDatabaseError();
-      return NextResponse.json(
-        {
-          error: 'Database connection failed',
-          dbError: dbError,
-          message: 'MySQL server is not running. Start MySQL and restart the dev server.',
-        },
-        { status: 503 }
-      );
+      if (process.env.NODE_ENV === 'development') {
+        // In dev mode, silently return database setup message without logging
+        const dbError = getDatabaseError();
+        return NextResponse.json(
+          {
+            error: 'Database connection failed',
+            dbError: dbError,
+            message: 'MySQL server is not running. Start MySQL and restart the dev server.',
+          },
+          { status: 503 }
+        );
+      }
     }
 
+    console.error('[v0] Admin login error:', error);
     return NextResponse.json(
       {
         error: 'An error occurred',

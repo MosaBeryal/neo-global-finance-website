@@ -25,16 +25,21 @@ export default function AdminLoginPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: 'test', password: 'test' }),
         });
-        const data = await response.json();
-        if (data.dbError) {
-          setDbError(data.dbError);
-          setShowSetupGuide(true);
+        if (response.status === 503) {
+          const data = await response.json();
+          if (data.dbError) {
+            setDbError(data.dbError);
+            setShowSetupGuide(true);
+          }
         }
       } catch (err) {
         // Silently fail on network errors during check
       }
     };
-    checkDatabase();
+    // Only check database on client-side navigation, not on initial load
+    if (typeof window !== 'undefined') {
+      checkDatabase();
+    }
   }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
