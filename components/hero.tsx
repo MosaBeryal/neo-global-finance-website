@@ -18,11 +18,11 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary leading-tight tracking-tight text-balance">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary leading-tight tracking-tight text-balance">
           Your Global <span className="text-accent block sm:inline">Financial</span> Partner
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed font-light px-2">
+        <p className="text-lg sm:text-xl md:text-2xl text-foreground/65 max-w-3xl mx-auto leading-relaxed font-light px-2">
           Expert accountancy services, strategic tax planning, and comprehensive financial advisory for forward-thinking businesses worldwide.
         </p>
 

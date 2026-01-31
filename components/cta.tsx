@@ -49,7 +49,7 @@ export default function CTA() {
           {/* Left side - Contact info */}
           <div className="space-y-10 sm:space-y-12 md:space-y-14">
             <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
+              <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
                 Ready to Transform Your Financial Future?
               </h2>
               <p className="text-lg sm:text-xl text-white/80 font-light leading-relaxed">
@@ -101,7 +101,7 @@ export default function CTA() {
 
           {/* Right side - Contact form */}
           <div className="bg-white/8 backdrop-blur-md rounded-2xl p-10 sm:p-12 md:p-14 border border-white/20 hover:border-white/30 transition-colors duration-300">
-            <h3 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">Send us a Message</h3>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">Send us a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
               {submitted && (

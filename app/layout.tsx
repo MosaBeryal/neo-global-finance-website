@@ -1,11 +1,20 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { _geist } from './geist' // Declare the _geist variable
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _serif = Cormorant_Garamond({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-serif"
+});
+const _sans = Inter({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans"
+});
 
 export const metadata: Metadata = {
   title: 'Neo Global Finance | Professional Accountancy Services',
@@ -42,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${_geist.className} antialiased bg-background text-foreground`}>
+    <html lang="en" className={`${_serif.variable} ${_sans.variable}`}>
+      <body className="font-sans antialiased bg-background text-foreground">
         {children}
         <Analytics />
       </body>

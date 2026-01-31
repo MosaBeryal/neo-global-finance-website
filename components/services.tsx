@@ -49,7 +49,7 @@ export default function Services() {
           <span className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-accent/8 text-primary text-xs sm:text-sm font-medium rounded-full border border-accent/40 tracking-wide">
             Our Services
           </span>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-tight">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-tight">
             Comprehensive Financial Solutions
           </h2>
           <p className="text-lg sm:text-xl text-foreground/70 max-w-2xl mx-auto px-2 font-light">
@@ -69,7 +69,7 @@ export default function Services() {
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/8 rounded-xl flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-accent/15 transition-all duration-300">
                   <Icon className="text-primary group-hover:text-accent transition-colors duration-300" size={28} />
                 </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-4 leading-tight">{service.title}</h3>
+                <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-4 leading-tight">{service.title}</h3>
                 <p className="text-base sm:text-base text-foreground/70 leading-relaxed font-light">{service.description}</p>
               </Card>
             )

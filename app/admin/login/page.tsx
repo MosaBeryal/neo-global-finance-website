@@ -105,7 +105,7 @@ export default function AdminLoginPage() {
 
         {/* Login Card */}
         <div className="bg-white rounded-2xl p-10 border border-border shadow-lg">
-          <h2 className="text-2xl font-bold text-primary mb-8 text-center">Admin Login</h2>
+          <h2 className="font-serif text-3xl font-bold text-primary mb-8 text-center">Admin Login</h2>
 
           <form onSubmit={handleLogin} className="space-y-6">
             {/* Username Field */}
