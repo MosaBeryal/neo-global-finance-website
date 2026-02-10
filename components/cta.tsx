@@ -47,7 +47,7 @@ export default function CTA() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
           {/* Left side - Contact info */}
-          <div className="space-y-10 sm:space-y-12 md:space-y-14">
+          <div className="space-y-10 sm:space-y-12 md:space-y-14 animate-slide-in-left opacity-0">
             <div className="space-y-6 sm:space-y-8">
               <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
                 Ready to Transform Your Financial Future?
@@ -59,9 +59,9 @@ export default function CTA() {
 
             {/* Contact details */}
             <div className="space-y-8 sm:space-y-10">
-              <div className="flex gap-4 sm:gap-5">
+              <div className="flex gap-4 sm:gap-5 hover-lift transition-smooth">
                 <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
-                  <Phone className="text-white/90" size={28} />
+                  <Phone className="text-white/90 transition-transform hover:scale-110" size={28} />
                 </div>
                 <div>
                   <p className="font-semibold text-base mb-2">Phone</p>
@@ -100,12 +100,12 @@ export default function CTA() {
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-10 sm:p-12 md:p-14 border border-white/20 hover:border-white/30 transition-colors duration-300">
+          <div className="bg-white/8 backdrop-blur-md rounded-2xl p-10 sm:p-12 md:p-14 border border-white/20 hover:border-white/30 transition-smooth hover:shadow-lg animate-slide-in-right opacity-0">
             <h3 className="font-serif text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">Send us a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
               {submitted && (
-                <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-white text-sm">
+                <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-white text-sm animate-scale-in">
                   Thank you! Your message has been received. Check your email for confirmation.
                 </div>
               )}

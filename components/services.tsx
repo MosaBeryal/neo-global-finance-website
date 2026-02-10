@@ -45,8 +45,8 @@ export default function Services() {
     <section id="services" className="w-full py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 sm:mb-20 md:mb-24 space-y-6 sm:space-y-8">
-          <span className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-accent/8 text-primary text-xs sm:text-sm font-medium rounded-full border border-accent/40 tracking-wide">
+        <div className="text-center mb-16 sm:mb-20 md:mb-24 space-y-6 sm:space-y-8 animate-fade-in-down opacity-0">
+          <span className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-accent/8 text-primary text-xs sm:text-sm font-medium rounded-full border border-accent/40 tracking-wide hover-scale transition-smooth">
             Our Services
           </span>
           <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-tight">
@@ -64,7 +64,8 @@ export default function Services() {
             return (
               <Card
                 key={idx}
-                className="p-8 sm:p-9 md:p-10 bg-white border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl group cursor-pointer rounded-xl"
+                className={`p-8 sm:p-9 md:p-10 bg-white border border-border hover:border-accent/50 transition-smooth hover:shadow-2xl hover:-translate-y-2 group cursor-pointer rounded-xl animate-fade-in-up opacity-0`}
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/8 rounded-xl flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-accent/15 transition-all duration-300">
                   <Icon className="text-primary group-hover:text-accent transition-colors duration-300" size={28} />

@@ -33,8 +33,8 @@ export default function WhyChooseUs() {
     <section id="why-us" className="w-full py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 lg:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 sm:mb-20 md:mb-24 space-y-6 sm:space-y-8">
-          <span className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-accent/8 text-primary text-xs sm:text-sm font-medium rounded-full border border-accent/40 tracking-wide">
+        <div className="text-center mb-16 sm:mb-20 md:mb-24 space-y-6 sm:space-y-8 animate-fade-in-down opacity-0">
+          <span className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-accent/8 text-primary text-xs sm:text-sm font-medium rounded-full border border-accent/40 tracking-wide hover-scale transition-smooth">
             Why Choose Us
           </span>
           <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-tight">
@@ -50,7 +50,8 @@ export default function WhyChooseUs() {
           {reasons.map((reason, idx) => (
             <Card
               key={idx}
-              className="p-8 sm:p-9 md:p-10 bg-white border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl group cursor-pointer rounded-xl"
+              className={`p-8 sm:p-9 md:p-10 bg-white border border-border hover:border-accent/50 transition-smooth hover:shadow-2xl hover:-translate-y-2 group cursor-pointer rounded-xl animate-fade-in-up opacity-0`}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="flex gap-5">
                 <div className="flex-shrink-0 pt-1">
@@ -66,7 +67,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Bottom testimonial section */}
-        <div className="bg-white rounded-2xl p-10 sm:p-12 md:p-16 border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl">
+        <div className="bg-white rounded-2xl p-10 sm:p-12 md:p-16 border border-border hover:border-accent/50 transition-smooth hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
           <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             <div className="flex justify-center gap-1">
               {[...Array(5)].map((_, i) => (

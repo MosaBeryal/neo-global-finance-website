@@ -9,12 +9,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/98 backdrop-blur-lg border-b border-border/40">
+    <header className="sticky top-0 z-50 w-full bg-background/98 backdrop-blur-lg border-b border-border/40 transition-smooth">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+          <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0 hover-scale transition-smooth">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-lg transition-all duration-300">
               <span className="text-white font-bold text-base sm:text-lg">N</span>
             </div>
             <span className="text-base sm:text-lg font-semibold text-primary hidden sm:inline whitespace-nowrap tracking-tight">Neo Global</span>
@@ -23,17 +23,17 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1 lg:space-x-3">
             <Link href="#services">
-              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-colors duration-200">
+              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-smooth">
                 Services
               </Button>
             </Link>
             <Link href="#why-us">
-              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-colors duration-200">
+              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-smooth">
                 Why Us
               </Button>
             </Link>
             <Link href="#contact">
-              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-colors duration-200">
+              <Button variant="ghost" className="text-foreground/80 hover:text-primary font-medium text-sm lg:text-base transition-smooth">
                 Contact
               </Button>
             </Link>
@@ -41,7 +41,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:block flex-shrink-0">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-sm lg:text-base transition-all duration-300 shadow-sm hover:shadow-md">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold text-sm lg:text-base transition-smooth shadow-sm hover:shadow-md hover:scale-105">
               Get Started
             </Button>
           </div>
