@@ -65,8 +65,8 @@ export default function CTA() {
                 </div>
                 <div>
                   <p className="font-semibold text-base mb-2">Phone</p>
-                  <a href="tel:+1234567890" className="text-white/80 hover:text-white transition-colors text-base">
-                    +1 (234) 567-890
+                  <a href="tel:+12315774674" className="text-white/80 hover:text-white transition-colors text-base">
+                    +1 (231) 577-4674
                   </a>
                 </div>
               </div>
@@ -90,9 +90,9 @@ export default function CTA() {
                 <div>
                   <p className="font-semibold text-base mb-2">Address</p>
                   <p className="text-white/80 text-base leading-relaxed">
-                    123 Financial Plaza
+                    501 South Union Street, Suite 200
                     <br />
-                    New York, NY 10001
+                    Traverse City, MI 49684
                   </p>
                 </div>
               </div>
