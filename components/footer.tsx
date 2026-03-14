@@ -93,8 +93,8 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3">
               <li className="flex gap-2 text-white/70 text-xs sm:text-sm">
                 <Phone size={16} className="flex-shrink-0 mt-0.5" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors break-all">
-                  +1 (234) 567-890
+                <a href="tel:+12315774674" className="hover:text-white transition-colors break-all">
+                  +1 (231) 577-4674
                 </a>
               </li>
               <li className="flex gap-2 text-white/70 text-xs sm:text-sm">
@@ -105,7 +105,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-2 text-white/70 text-xs sm:text-sm">
                 <MapPin size={16} className="flex-shrink-0 mt-0.5 flex-shrink-0" />
-                <span>123 Financial Plaza, New York, NY 10001</span>
+                <span>501 South Union Street, Suite 200, Traverse City, MI 49684</span>
               </li>
             </ul>
           </div>
